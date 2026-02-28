@@ -1,327 +1,448 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smyl — Social Media Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<aside class="sidebar">
-  <div class="logo"><span></span>Smyl</div>
-
-  <div class="nav-section">Overview</div>
-  <a class="nav-item active"><span class="nav-icon">◈</span> Dashboard</a>
-  <a class="nav-item"><span class="nav-icon">◉</span> Analytics</a>
-  <a class="nav-item"><span class="nav-icon">◎</span> Audience</a>
-
-  <div class="nav-section" style="margin-top:20px">Content</div>
-  <a class="nav-item"><span class="nav-icon">▦</span> Posts</a>
-  <a class="nav-item"><span class="nav-icon">◷</span> Schedule</a>
-  <a class="nav-item"><span class="nav-icon">◫</span> Media</a>
-
-  <div class="nav-section" style="margin-top:20px">Manage</div>
-  <a class="nav-item"><span class="nav-icon">◌</span> Accounts</a>
-  <a class="nav-item"><span class="nav-icon">◁</span> Reports</a>
-  <a class="nav-item"><span class="nav-icon">⊙</span> Settings</a>
-
-  <div class="sidebar-bottom">
-    <div class="avatar-row">
-      <div class="avatar">PR</div>
-      <div class="avatar-info">
-        <div class="avatar-name">Priyanshu Ranjan</div>
-        <div class="avatar-role">Student</div>
-      </div>
-      <span style="font-size:14px;color:var(--muted)">⋯</span>
-    </div>
-  </div>
-</aside>
-
-<main class="main">
-
-  <div class="topbar">
-    <div>
-      <div class="page-title">Dashboard</div>
-      <div class="page-subtitle">Last 30 days across all platforms</div>
-    </div>
-
-    <div class="topbar-right">
-      <div class="date-badge" id="current-date"></div>
-      <div class="notif-btn">🔔<span class="notif-dot"></span></div>
-      <button class="btn-primary"> + New Post</button>
-    </div>
-  </div>
-
-  <div class="platform-tabs">
-    <button class="platform-tab active"    onclick="filterPlatform('all', this)">All Platforms</button>
-    <button class="platform-tab"           onclick="filterPlatform('instagram', this)">
-      <span class="dot" style="background:#e1306c"></span>Instagram
-    </button>
-
-    <button class="platform-tab"           onclick="filterPlatform('twitter', this)">
-      <span class="dot" style="background:#1da1f2"></span>X / Twitter
-    </button>
-
-    <button class="platform-tab"           onclick="filterPlatform('linkedin', this)">
-      <span class="dot" style="background:#0a66c2"></span>LinkedIn
-    </button>
-
-    <button class="platform-tab"           onclick="filterPlatform('whatsapp', this)">
-      <span class="dot" style="background:#02fa50"></span>WhatsApp
-    </button>
-  </div>
-
-  <div class="stats-grid">
-
-    <div class="stat-card c1" style="animation-delay:0s">
-      <div class="stat-label"><span class="platform-icon">👥</span> Total Followers</div>
-      <div class="stat-value">584.6K</div>
-      <div class="stat-change up">▲ +3.2% this month</div>
-      <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
-        <polyline points="0,25 12,18 24,22 36,10 48,14 60,5"
-          fill="none" stroke="#e8ff47" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-      </svg>
-    </div>
-
-    <div class="stat-card c2" style="animation-delay:0.05s">
-      <div class="stat-label"><span class="platform-icon">❤️</span> Total Engagement</div>
-      <div class="stat-value">47.2K</div>
-      <div class="stat-change up">▲ +8.7% this month</div>
-      <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
-        <polyline points="0,28 12,20 24,15 36,18 48,8 60,4"
-          fill="none" stroke="#ff4f7b" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-      </svg>
-    </div>
-
-    <div class="stat-card c3" style="animation-delay:0.1s">
-      <div class="stat-label"><span class="platform-icon">📈</span> Reach</div>
-      <div class="stat-value">1.04M</div>
-      <div class="stat-change up">▲ +12.1% this month</div>
-      <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
-        <polyline points="0,22 12,24 24,16 36,12 48,6 60,3"
-          fill="none" stroke="#47c8ff" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-      </svg>
-    </div>
-
-    <div class="stat-card c4" style="animation-delay:0.15s">
-      <div class="stat-label"><span class="platform-icon">🔗</span> Link Clicks</div>
-      <div class="stat-value">8,904</div>
-      <div class="stat-change down">▼ -1.4% this month</div>
-      <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
-        <polyline points="0,10 12,8 24,12 36,16 48,20 60,18"
-          fill="none" stroke="#b847ff" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-      </svg>
-    </div>
-
-  </div>
-
-  <div class="content-row">
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">Engagement Over Time</div>
-        <div style="display:flex;gap:8px;">
-
-          <span class="card-badge">30 days</span>
-          <div style="display:flex;gap:12px;font-size:11px;color:var(--muted);align-items:center;margin-left:8px;">
-            <span style="display:flex;align-items:center;gap:4px;">
-              <span style="width:8px;height:2px;background:var(--accent);display:inline-block;border-radius:2px"></span>Likes
-            </span>
-
-            <span style="display:flex;align-items:center;gap:4px;">
-              <span style="width:8px;height:2px;background:var(--accent3);display:inline-block;border-radius:2px"></span>Comments
-            </span>
-
-            <span style="display:flex;align-items:center;gap:4px;">
-              <span style="width:8px;height:2px;background:var(--accent4);display:inline-block;border-radius:2px"></span>Shares
-            </span>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item active" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
           </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">Last 30 days across all platforms</div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <button class="btn-primary">+ New Post</button>
         </div>
       </div>
 
-      <div class="chart-container">
-        <canvas id="engagementChart"></canvas>
+      <div class="platform-tabs">
+        <button
+          class="platform-tab active"
+          onclick="filterPlatform('all', this)"
+        >
+          All Platforms
+        </button>
+        <button
+          class="platform-tab"
+          onclick="filterPlatform('instagram', this)"
+        >
+          <span class="dot" style="background: #e1306c"></span>Instagram
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('twitter', this)">
+          <span class="dot" style="background: #1da1f2"></span>X / Twitter
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('linkedin', this)">
+          <span class="dot" style="background: #0a66c2"></span>LinkedIn
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('whatsapp', this)">
+          <span class="dot" style="background: #02fa50"></span>WhatsApp
+        </button>
       </div>
-    </div>
 
-    <div class="card audience-widget">
-      <div class="card-header">
-        <div class="card-title">Platform Split</div>
+      <div class="stats-grid">
+        <div class="stat-card c1" style="animation-delay: 0s">
+          <div class="stat-label">
+            <span class="platform-icon">👥</span> Total Followers
+          </div>
+          <div class="stat-value">584.6K</div>
+          <div class="stat-change up">▲ +3.2% this month</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,25 12,18 24,22 36,10 48,14 60,5"
+              fill="none"
+              stroke="#e8ff47"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c2" style="animation-delay: 0.05s">
+          <div class="stat-label">
+            <span class="platform-icon">❤️</span> Total Engagement
+          </div>
+          <div class="stat-value">47.2K</div>
+          <div class="stat-change up">▲ +8.7% this month</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,28 12,20 24,15 36,18 48,8 60,4"
+              fill="none"
+              stroke="#ff4f7b"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c3" style="animation-delay: 0.1s">
+          <div class="stat-label">
+            <span class="platform-icon">📈</span> Reach
+          </div>
+          <div class="stat-value">1.04M</div>
+          <div class="stat-change up">▲ +12.1% this month</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,22 12,24 24,16 36,12 48,6 60,3"
+              fill="none"
+              stroke="#47c8ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c4" style="animation-delay: 0.15s">
+          <div class="stat-label">
+            <span class="platform-icon">🔗</span> Link Clicks
+          </div>
+          <div class="stat-value">8,904</div>
+          <div class="stat-change down">▼ -1.4% this month</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,10 12,8 24,12 36,16 48,20 60,18"
+              fill="none"
+              stroke="#b847ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
       </div>
 
-      <div class="breakdown-list">
-        <div class="breakdown-item">
-          <div class="breakdown-icon" style="background:rgba(225,48,108,0.15)">📸</div>
-          <div class="breakdown-info">
-            <div class="breakdown-name">Instagram</div>
-            <div class="breakdown-bar-wrap">
-              <div class="breakdown-bar" style="width:68%;background:#e1306c"></div>
+      <div class="content-row">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Engagement Over Time</div>
+            <div style="display: flex; gap: 8px">
+              <span class="card-badge">30 days</span>
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  font-size: 11px;
+                  color: var(--muted);
+                  align-items: center;
+                  margin-left: 8px;
+                "
+              >
+                <span style="display: flex; align-items: center; gap: 4px"
+                  ><span
+                    style="
+                      width: 8px;
+                      height: 2px;
+                      background: var(--accent);
+                      display: inline-block;
+                      border-radius: 2px;
+                    "
+                  ></span
+                  >Likes</span
+                >
+                <span style="display: flex; align-items: center; gap: 4px"
+                  ><span
+                    style="
+                      width: 8px;
+                      height: 2px;
+                      background: var(--accent3);
+                      display: inline-block;
+                      border-radius: 2px;
+                    "
+                  ></span
+                  >Comments</span
+                >
+                <span style="display: flex; align-items: center; gap: 4px"
+                  ><span
+                    style="
+                      width: 8px;
+                      height: 2px;
+                      background: var(--accent4);
+                      display: inline-block;
+                      border-radius: 2px;
+                    "
+                  ></span
+                  >Shares</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="engagementChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card audience-widget">
+          <div class="card-header">
+            <div class="card-title">Platform Split</div>
+          </div>
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <div
+                class="breakdown-icon"
+                style="background: rgba(225, 48, 108, 0.15)"
+              >
+                📸
+              </div>
+              <div class="breakdown-info">
+                <div class="breakdown-name">Instagram</div>
+                <div class="breakdown-bar-wrap">
+                  <div
+                    class="breakdown-bar"
+                    style="width: 68%; background: #e1306c"
+                  ></div>
+                </div>
+              </div>
+              <div class="breakdown-val">68%</div>
+            </div>
+            <div class="breakdown-item">
+              <div
+                class="breakdown-icon"
+                style="background: rgba(29, 161, 242, 0.15)"
+              >
+                𝕏
+              </div>
+              <div class="breakdown-info">
+                <div class="breakdown-name">X / Twitter</div>
+                <div class="breakdown-bar-wrap">
+                  <div
+                    class="breakdown-bar"
+                    style="width: 14%; background: #1da1f2"
+                  ></div>
+                </div>
+              </div>
+              <div class="breakdown-val">14%</div>
+            </div>
+            <div class="breakdown-item">
+              <div
+                class="breakdown-icon"
+                style="background: rgba(10, 102, 194, 0.15)"
+              >
+                in
+              </div>
+              <div class="breakdown-info">
+                <div class="breakdown-name">LinkedIn</div>
+                <div class="breakdown-bar-wrap">
+                  <div
+                    class="breakdown-bar"
+                    style="width: 10%; background: #0a66c2"
+                  ></div>
+                </div>
+              </div>
+              <div class="breakdown-val">10%</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-icon" style="background: #03f744b1">💬</div>
+              <div class="breakdown-info">
+                <div class="breakdown-name">WhatsApp</div>
+                <div class="breakdown-bar-wrap">
+                  <div
+                    class="breakdown-bar"
+                    style="width: 8%; background: #03f72b"
+                  ></div>
+                </div>
+              </div>
+              <div class="breakdown-val">8%</div>
             </div>
           </div>
 
-          <div class="breakdown-val">68%</div>
-        </div>
-        <div class="breakdown-item">
-          <div class="breakdown-icon" style="background:rgba(29,161,242,0.15)">𝕏</div>
-          <div class="breakdown-info">
-            <div class="breakdown-name">X / Twitter</div>
-            <div class="breakdown-bar-wrap">
-              <div class="breakdown-bar" style="width:14%;background:#1da1f2"></div>
+          <div
+            style="height: 1px; background: var(--border); margin: 20px 0"
+          ></div>
+
+          <div class="audience-grid">
+            <div class="audience-stat">
+              <div class="audience-stat-label">Avg. Age</div>
+              <div class="audience-stat-val">22</div>
+              <div class="audience-stat-sub">18-26 dominant</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Eng. Rate</div>
+              <div class="audience-stat-val">8.7%</div>
+              <div class="audience-stat-sub">▲ above avg</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Best Time</div>
+              <div class="audience-stat-val">3 am</div>
+              <div class="audience-stat-sub">Sat / Sun</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Top Country</div>
+              <div class="audience-stat-val">Ind</div>
+              <div class="audience-stat-sub">India</div>
             </div>
           </div>
-
-          <div class="breakdown-val">14%</div>
         </div>
-        <div class="breakdown-item">
-          <div class="breakdown-icon" style="background:rgba(10,102,194,0.15)">in</div>
-          <div class="breakdown-info">
-            <div class="breakdown-name">LinkedIn</div>
-            <div class="breakdown-bar-wrap">
-              <div class="breakdown-bar" style="width:10%;background:#0a66c2"></div>
+      </div>
+
+      <div class="card posts-section">
+        <div class="card-header">
+          <div class="card-title">Recent Posts</div>
+          <a
+            href="posts.html"
+            style="
+              font-size: 11px;
+              color: var(--accent);
+              cursor: pointer;
+              text-decoration: none;
+            "
+            >View all →</a
+          >
+        </div>
+        <div class="post-row header">
+          <div>Post</div>
+          <div>Reach</div>
+          <div>Engagement</div>
+          <div>Clicks</div>
+          <div>Status</div>
+        </div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">🌊</div>
+            <div class="post-meta">
+              <div class="post-name">
+                Behind the scenes — product launch day
+              </div>
+              <div class="post-platform-badge">📸 Instagram · 2h ago</div>
             </div>
           </div>
-
-          <div class="breakdown-val">10%</div>
+          <div>42.3K</div>
+          <div style="color: var(--green)">2,841</div>
+          <div>309</div>
+          <div>
+            <span class="status-badge live"
+              ><span class="status-dot"></span>Live</span
+            >
+          </div>
         </div>
-
-        <div class="breakdown-item">
-        <div class="breakdown-icon" style="background:#03f744b1">💬</div>
-        <div class="breakdown-info">
-        <div class="breakdown-name">WhatsApp</div>
-        <div class="breakdown-bar-wrap">
-        <div class="breakdown-bar" style="width:8%;background:#03f72b"></div>
-    </div>
-  </div>
-
-  <div class="breakdown-val">8%</div>
-</div>
-
-      <div style="height:1px;background:var(--border);margin:20px 0"></div>
-
-      <div class="audience-grid">
-        <div class="audience-stat">
-          <div class="audience-stat-label">Avg. Age</div>
-          <div class="audience-stat-val">22</div>
-          <div class="audience-stat-sub">18-26 dominant</div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">🔥</div>
+            <div class="post-meta">
+              <div class="post-name">5 trends shaping social in 2026</div>
+              <div class="post-platform-badge">💼 LinkedIn · 6h ago</div>
+            </div>
+          </div>
+          <div>18.7K</div>
+          <div style="color: var(--green)">1,220</div>
+          <div>847</div>
+          <div>
+            <span class="status-badge live"
+              ><span class="status-dot"></span>Live</span
+            >
+          </div>
         </div>
-
-        <div class="audience-stat">
-          <div class="audience-stat-label">Eng. Rate</div>
-          <div class="audience-stat-val">8.7%</div>
-          <div class="audience-stat-sub">▲ above avg</div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">⚡</div>
+            <div class="post-meta">
+              <div class="post-name">
+                This one's going to break the internet
+              </div>
+              <div class="post-platform-badge">💬 WhatsApp · Tomorrow 9am</div>
+            </div>
+          </div>
+          <div>—</div>
+          <div>—</div>
+          <div>—</div>
+          <div>
+            <span class="status-badge scheduled"
+              ><span class="status-dot"></span>Scheduled</span
+            >
+          </div>
         </div>
-
-        <div class="audience-stat">
-          <div class="audience-stat-label">Best Time</div>
-          <div class="audience-stat-val">3 am</div>
-          <div class="audience-stat-sub">Sat / Sun</div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">🎯</div>
+            <div class="post-meta">
+              <div class="post-name">
+                How we hit 1M followers without paid ads
+              </div>
+              <div class="post-platform-badge">𝕏 / Twitter · Draft</div>
+            </div>
+          </div>
+          <div>—</div>
+          <div>—</div>
+          <div>—</div>
+          <div>
+            <span class="status-badge draft"
+              ><span class="status-dot"></span>Draft</span
+            >
+          </div>
         </div>
-
-        <div class="audience-stat">
-          <div class="audience-stat-label">Top Country</div>
-          <div class="audience-stat-val">Ind</div>
-          <div class="audience-stat-sub">India</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="card posts-section">
-    <div class="card-header">
-      <div class="card-title">Recent Posts</div>
-      <span style="font-size:11px;color:var(--accent);cursor:pointer;">View all →</span>
-    </div>
-
-    <div class="post-row header">
-      <div>Post</div>
-      <div>Reach</div>
-      <div>Engagement</div>
-      <div>Clicks</div>
-      <div>Status</div>
-    </div>
-
-    <div class="post-row">
-      <div class="post-title">
-        <div class="post-thumb">🌊</div>
-        <div class="post-meta">
-          <div class="post-name">Behind the scenes — product launch day</div>
-          <div class="post-platform-badge">📸 Instagram · 2h ago</div>
-        </div>
-      </div>
-
-      <div>42.3K</div>
-      <div style="color:var(--green)">2,841</div>
-      <div>309</div>
-      <div><span class="status-badge live"><span class="status-dot"></span>Live</span></div>
-    </div>
-
-    <div class="post-row">
-      <div class="post-title">
-        <div class="post-thumb">🔥</div>
-        <div class="post-meta">
-          <div class="post-name">5 trends shaping social in 2026</div>
-          <div class="post-platform-badge">💼 LinkedIn · 6h ago</div>
-        </div>
-
-      </div>
-      <div>18.7K</div>
-      <div style="color:var(--green)">1,220</div>
-      <div>847</div>
-      <div><span class="status-badge live"><span class="status-dot"></span>Live</span></div>
-    </div>
-
-    <div class="post-row">
-      <div class="post-title">
-        <div class="post-thumb">⚡</div>
-        <div class="post-meta">
-          <div class="post-name">This one's going to break the internet </div>
-          <div class="post-platform-badge">💬 WhatsApp · Tomorrow 9am</div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">💡</div>
+            <div class="post-meta">
+              <div class="post-name">
+                The algorithm change nobody's talking about
+              </div>
+              <div class="post-platform-badge">📸 Instagram · Yesterday</div>
+            </div>
+          </div>
+          <div>91.4K</div>
+          <div style="color: var(--green)">6,023</div>
+          <div>1,204</div>
+          <div>
+            <span class="status-badge live"
+              ><span class="status-dot"></span>Live</span
+            >
+          </div>
         </div>
       </div>
-      <div>—</div>
-      <div>—</div>
-      <div>—</div>
-      <div><span class="status-badge scheduled"><span class="status-dot"></span>Scheduled</span></div>
-    </div>
+    </main>
 
-    <div class="post-row">
-      <div class="post-title">
-        <div class="post-thumb">🎯</div>
-        <div class="post-meta">
-          <div class="post-name">How we hit 1M followers without paid ads</div>
-          <div class="post-platform-badge">𝕏 / Twitter · Draft</div>
-        </div>
-      </div>
-      <div>—</div>
-      <div>—</div>
-      <div>—</div>
-      <div><span class="status-badge draft"><span class="status-dot"></span>Draft</span></div>
-    </div>
-
-    <div class="post-row">
-      <div class="post-title">
-        <div class="post-thumb">💡</div>
-        <div class="post-meta">
-          <div class="post-name">The algorithm change nobody's talking about</div>
-          <div class="post-platform-badge">📸 Instagram · Yesterday</div>
-        </div>
-      </div>
-      <div>91.4K</div>
-      <div style="color:var(--green)">6,023</div>
-      <div>1,204</div>
-      <div><span class="status-badge live"><span class="status-dot"></span>Live</span></div>
-    </div>
-
-  </div>
-
-</main>
-
-<script src="script.js"></script>
-</body>
+    <script src="shared.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
