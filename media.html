@@ -1,0 +1,565 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Media</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .media-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+      .type-tabs {
+        display: flex;
+        gap: 6px;
+      }
+      .type-tab {
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--muted);
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .type-tab:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .type-tab.active {
+        background: var(--surface2);
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .upload-zone {
+        border: 2px dashed var(--border);
+        border-radius: 14px;
+        padding: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: 24px;
+      }
+      .upload-zone:hover {
+        border-color: rgba(232, 255, 71, 0.4);
+        background: rgba(232, 255, 71, 0.02);
+      }
+      .storage-bar-wrap {
+        height: 8px;
+        background: var(--surface2);
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+      .storage-bar {
+        height: 100%;
+        border-radius: 8px;
+        background: linear-gradient(90deg, var(--accent), var(--accent3));
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item active" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Media Library</div>
+          <div class="page-subtitle">
+            All your images, videos, and assets in one place
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <button class="btn-secondary">📁 New Folder</button>
+          <button class="btn-primary">⬆ Upload</button>
+        </div>
+      </div>
+
+      <div class="content-row-equal" style="margin-bottom: 24px">
+        <div class="card" style="animation-delay: 0s">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 12px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  font-size: 11px;
+                  color: var(--muted);
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 6px;
+                "
+              >
+                Storage Used
+              </div>
+              <div style="font-size: 24px; font-weight: 700">
+                4.2
+                <span style="font-size: 14px; color: var(--muted)"
+                  >/ 10 GB</span
+                >
+              </div>
+            </div>
+            <span class="card-badge">42% used</span>
+          </div>
+          <div class="storage-bar-wrap">
+            <div class="storage-bar" style="width: 42%"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-size: 10px;
+              color: var(--muted);
+              margin-top: 6px;
+            "
+          >
+            <span>0 GB</span><span>5 GB</span><span>10 GB</span>
+          </div>
+        </div>
+        <div class="card" style="animation-delay: 0.05s">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              gap: 12px;
+            "
+          >
+            <div class="audience-stat">
+              <div class="audience-stat-label">🖼 Images</div>
+              <div class="audience-stat-val" style="font-size: 20px">312</div>
+              <div class="audience-stat-sub">2.1 GB</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">🎬 Videos</div>
+              <div class="audience-stat-val" style="font-size: 20px">47</div>
+              <div class="audience-stat-sub">1.8 GB</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">🎵 Audio</div>
+              <div class="audience-stat-val" style="font-size: 20px">18</div>
+              <div class="audience-stat-sub">0.2 GB</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">📄 Docs</div>
+              <div class="audience-stat-val" style="font-size: 20px">24</div>
+              <div class="audience-stat-sub">0.1 GB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="upload-zone" onclick="alert('Upload files!')">
+        <div style="font-size: 36px; margin-bottom: 10px">☁️</div>
+        <div style="font-size: 14px; font-weight: 600; margin-bottom: 6px">
+          Drop files here or click to upload
+        </div>
+        <div style="font-size: 11px; color: var(--muted)">
+          Supports JPG, PNG, GIF, MP4, MOV, MP3 · Max 500MB per file
+        </div>
+      </div>
+
+      <div class="media-toolbar">
+        <div class="search-bar" style="flex: 1; max-width: 280px">
+          <span>🔍</span>
+          <input type="text" placeholder="Search media…" />
+        </div>
+        <div class="type-tabs">
+          <button class="type-tab active" onclick="setType('all', this)">
+            All
+          </button>
+          <button class="type-tab" onclick="setType('images', this)">
+            🖼 Images
+          </button>
+          <button class="type-tab" onclick="setType('videos', this)">
+            🎬 Videos
+          </button>
+          <button class="type-tab" onclick="setType('audio', this)">
+            🎵 Audio
+          </button>
+          <button class="type-tab" onclick="setType('docs', this)">
+            📄 Docs
+          </button>
+        </div>
+        <select
+          class="form-input"
+          style="
+            width: auto;
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-left: auto;
+          "
+        >
+          <option>Newest first</option>
+          <option>Oldest first</option>
+          <option>Largest first</option>
+          <option>Name A–Z</option>
+        </select>
+        <button class="btn-ghost" style="padding: 6px 12px">⊞</button>
+        <button class="btn-ghost" style="padding: 6px 12px">☰</button>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <div
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+          "
+        >
+          Folders
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 14px;
+              background: var(--surface2);
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseenter="this.style.borderColor = 'rgba(255,255,255,0.15)'"
+            onmouseleave="this.style.borderColor = 'var(--border)'"
+          >
+            <span style="font-size: 18px">📁</span>
+            <div>
+              <div style="font-size: 12px; font-weight: 500">
+                Product Launch
+              </div>
+              <div style="font-size: 10px; color: var(--muted)">48 files</div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 14px;
+              background: var(--surface2);
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseenter="this.style.borderColor = 'rgba(255,255,255,0.15)'"
+            onmouseleave="this.style.borderColor = 'var(--border)'"
+          >
+            <span style="font-size: 18px">📁</span>
+            <div>
+              <div style="font-size: 12px; font-weight: 500">Brand Assets</div>
+              <div style="font-size: 10px; color: var(--muted)">124 files</div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 14px;
+              background: var(--surface2);
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseenter="this.style.borderColor = 'rgba(255,255,255,0.15)'"
+            onmouseleave="this.style.borderColor = 'var(--border)'"
+          >
+            <span style="font-size: 18px">📁</span>
+            <div>
+              <div style="font-size: 12px; font-weight: 500">
+                Reels & Videos
+              </div>
+              <div style="font-size: 10px; color: var(--muted)">47 files</div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 14px;
+              background: var(--surface2);
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseenter="this.style.borderColor = 'rgba(255,255,255,0.15)'"
+            onmouseleave="this.style.borderColor = 'var(--border)'"
+          >
+            <span style="font-size: 18px">📁</span>
+            <div>
+              <div style="font-size: 12px; font-weight: 500">Thumbnails</div>
+              <div style="font-size: 10px; color: var(--muted)">83 files</div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 14px;
+              border: 1px dashed var(--border);
+              border-radius: 10px;
+              cursor: pointer;
+              color: var(--muted);
+              transition: all 0.2s;
+            "
+            onmouseenter="this.style.borderColor = 'rgba(255,255,255,0.2)'"
+            onmouseleave="this.style.borderColor = 'var(--border)'"
+          >
+            <span>+</span>
+            <div style="font-size: 12px">New Folder</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          font-size: 11px;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 12px;
+        "
+      >
+        Recent Files
+      </div>
+      <div class="media-grid">
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #1a1530, #0d0d1a)"
+          >
+            🌊
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">launch_bts_cover.jpg</div>
+            <div class="media-meta">1.2 MB · Feb 28</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #1a2010, #0d1a0d)"
+          >
+            🎬
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">reel_algorithm.mp4</div>
+            <div class="media-meta">48.3 MB · Feb 27</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #201520, #1a0d1a)"
+          >
+            🎨
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">brand_logo_v3.png</div>
+            <div class="media-meta">0.4 MB · Feb 25</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #0d1520, #0d0d1a)"
+          >
+            📊
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">analytics_report.pdf</div>
+            <div class="media-meta">2.1 MB · Feb 24</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #201a10, #1a1510)"
+          >
+            🔥
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">trends_thumbnail.jpg</div>
+            <div class="media-meta">0.9 MB · Feb 24</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #10201a, #0d1a15)"
+          >
+            🎵
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">bg_music_reel.mp3</div>
+            <div class="media-meta">4.7 MB · Feb 22</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #201010, #1a0d0d)"
+          >
+            💡
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">algo_infographic.png</div>
+            <div class="media-meta">1.6 MB · Feb 21</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #151520, #0d0d1a)"
+          >
+            🧵
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">thread_cover_art.jpg</div>
+            <div class="media-meta">0.8 MB · Feb 19</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #102015, #0d1a10)"
+          >
+            🌱
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">year_review_hero.jpg</div>
+            <div class="media-meta">1.1 MB · Feb 15</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #15100d, #1a150d)"
+          >
+            🎯
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">1M_milestone_graphic.png</div>
+            <div class="media-meta">2.3 MB · Feb 12</div>
+          </div>
+        </div>
+        <div class="media-item" onclick="this.classList.toggle('selected')">
+          <div
+            class="media-thumb"
+            style="background: linear-gradient(135deg, #1a1020, #15101a)"
+          >
+            🎬
+          </div>
+          <div class="media-check">✓</div>
+          <div class="media-info">
+            <div class="media-name">studio_tour_raw.mp4</div>
+            <div class="media-meta">112.4 MB · Feb 10</div>
+          </div>
+        </div>
+
+        <div
+          class="media-item"
+          style="
+            border-style: dashed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 168px;
+            cursor: pointer;
+          "
+          onclick="alert('Upload!')"
+        >
+          <div style="text-align: center; color: var(--muted)">
+            <div style="font-size: 28px; margin-bottom: 6px">+</div>
+            <div style="font-size: 11px">Upload</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+
+    <script>
+      function setType(t, el) {
+        document
+          .querySelectorAll(".type-tab")
+          .forEach((c) => c.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+    </script>
+  </body>
+</html>

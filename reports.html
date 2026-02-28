@@ -1,0 +1,521 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Reports</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .reports-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .report-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        animation: slideUp 0.4s ease both;
+      }
+      .report-card:hover {
+        border-color: rgba(255, 255, 255, 0.14);
+        transform: translateY(-2px);
+      }
+      .report-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+      .report-name {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .report-desc {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+      .report-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .report-meta {
+        font-size: 10px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item active" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Reports</div>
+          <div class="page-subtitle">
+            Generate, schedule, and export performance reports
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <button class="btn-secondary">📅 Schedule Report</button>
+          <button class="btn-primary">+ New Report</button>
+        </div>
+      </div>
+
+      <div
+        style="
+          font-size: 11px;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 14px;
+        "
+      >
+        Report Templates
+      </div>
+      <div class="reports-grid">
+        <div class="report-card" style="animation-delay: 0s">
+          <div class="report-icon" style="background: rgba(232, 255, 71, 0.1)">
+            📊
+          </div>
+          <div class="report-name">Monthly Performance</div>
+          <div class="report-desc">
+            Full overview of reach, engagement, followers and link clicks across
+            all platforms for a given month.
+          </div>
+          <div class="report-footer">
+            <span class="report-meta">Last generated: Feb 1</span>
+            <button
+              class="btn-primary"
+              style="padding: 5px 14px; font-size: 11px"
+              onclick="alert('Generating report…')"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <div class="report-card" style="animation-delay: 0.04s">
+          <div class="report-icon" style="background: rgba(71, 200, 255, 0.1)">
+            👥
+          </div>
+          <div class="report-name">Audience Insights</div>
+          <div class="report-desc">
+            Demographic breakdown, location data, interests, peak activity times
+            and follower growth trends.
+          </div>
+          <div class="report-footer">
+            <span class="report-meta">Last generated: Jan 28</span>
+            <button
+              class="btn-primary"
+              style="padding: 5px 14px; font-size: 11px"
+              onclick="alert('Generating report…')"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <div class="report-card" style="animation-delay: 0.08s">
+          <div class="report-icon" style="background: rgba(184, 71, 255, 0.1)">
+            🏆
+          </div>
+          <div class="report-name">Top Content Report</div>
+          <div class="report-desc">
+            Ranked list of best-performing posts by reach, engagement rate,
+            saves, and click-through rate.
+          </div>
+          <div class="report-footer">
+            <span class="report-meta">Last generated: Feb 10</span>
+            <button
+              class="btn-primary"
+              style="padding: 5px 14px; font-size: 11px"
+              onclick="alert('Generating report…')"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <div class="report-card" style="animation-delay: 0.12s">
+          <div class="report-icon" style="background: rgba(255, 79, 123, 0.1)">
+            📈
+          </div>
+          <div class="report-name">Growth Report</div>
+          <div class="report-desc">
+            Tracks follower growth rate, churn analysis, net new followers, and
+            projections for next 30 days.
+          </div>
+          <div class="report-footer">
+            <span class="report-meta">Last generated: Feb 15</span>
+            <button
+              class="btn-primary"
+              style="padding: 5px 14px; font-size: 11px"
+              onclick="alert('Generating report…')"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <div class="report-card" style="animation-delay: 0.16s">
+          <div class="report-icon" style="background: rgba(61, 255, 160, 0.1)">
+            🔗
+          </div>
+          <div class="report-name">Link & Conversion</div>
+          <div class="report-desc">
+            Click-through rates, UTM traffic attribution, conversion funnels and
+            link performance by platform.
+          </div>
+          <div class="report-footer">
+            <span class="report-meta">Last generated: Feb 20</span>
+            <button
+              class="btn-primary"
+              style="padding: 5px 14px; font-size: 11px"
+              onclick="alert('Generating report…')"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <div
+          class="report-card"
+          style="
+            animation-delay: 0.2s;
+            border-style: dashed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 180px;
+          "
+        >
+          <div style="font-size: 30px; margin-bottom: 10px">✏️</div>
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px">
+            Custom Report
+          </div>
+          <div
+            style="font-size: 11px; color: var(--muted); margin-bottom: 14px"
+          >
+            Build your own with any metric
+          </div>
+          <button
+            class="btn-secondary"
+            style="font-size: 11px; padding: 6px 14px"
+          >
+            Create Custom
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 20px">
+        <div class="card-header">
+          <div class="card-title">Scheduled Reports</div>
+          <button class="btn-ghost" style="font-size: 11px; padding: 5px 12px">
+            + Add Schedule
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Report</th>
+              <th>Frequency</th>
+              <th>Next Run</th>
+              <th>Recipients</th>
+              <th>Format</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Monthly Performance</strong></td>
+              <td>Monthly</td>
+              <td>Mar 1, 2026</td>
+              <td>priyanshu@gmail.com</td>
+              <td><span class="tag">PDF</span></td>
+              <td>
+                <span class="status-badge live"
+                  ><span class="status-dot"></span>Active</span
+                >
+              </td>
+              <td style="text-align: right">
+                <button
+                  class="btn-ghost"
+                  style="padding: 4px 10px; font-size: 11px"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Audience Insights</strong></td>
+              <td>Weekly</td>
+              <td>Mar 7, 2026</td>
+              <td>priyanshu@google.com</td>
+              <td><span class="tag">CSV</span></td>
+              <td>
+                <span class="status-badge live"
+                  ><span class="status-dot"></span>Active</span
+                >
+              </td>
+              <td style="text-align: right">
+                <button
+                  class="btn-ghost"
+                  style="padding: 4px 10px; font-size: 11px"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Top Content</strong></td>
+              <td>Bi-weekly</td>
+              <td>Mar 14, 2026</td>
+              <td>priyanshuranjan@gmail.com</td>
+              <td><span class="tag">XLSX</span></td>
+              <td>
+                <span class="status-badge draft"
+                  ><span class="status-dot"></span>Paused</span
+                >
+              </td>
+              <td style="text-align: right">
+                <button
+                  class="btn-ghost"
+                  style="padding: 4px 10px; font-size: 11px"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Recent Reports</div>
+          <div style="display: flex; gap: 8px">
+            <select
+              class="form-input"
+              style="width: auto; padding: 5px 12px; font-size: 11px"
+            >
+              <option>All types</option>
+              <option>Monthly</option>
+              <option>Audience</option>
+              <option>Growth</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Report Name</th>
+              <th>Type</th>
+              <th>Generated</th>
+              <th>Period</th>
+              <th>Size</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <span style="font-size: 20px">📊</span>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 500">
+                      February Performance Report
+                    </div>
+                    <div style="font-size: 10px; color: var(--muted)">
+                      All platforms
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="tag accent">Monthly</span></td>
+              <td style="color: var(--muted)">Feb 28, 2026</td>
+              <td style="color: var(--muted)">Feb 1–28</td>
+              <td style="color: var(--muted)">2.4 MB</td>
+              <td>
+                <div style="display: flex; gap: 6px">
+                  <button
+                    class="btn-ghost"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    Preview
+                  </button>
+                  <button
+                    class="btn-primary"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    ↓ Download
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <span style="font-size: 20px">👥</span>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 500">
+                      Audience Deep Dive — Jan 2026
+                    </div>
+                    <div style="font-size: 10px; color: var(--muted)">
+                      All platforms
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="tag blue">Audience</span></td>
+              <td style="color: var(--muted)">Jan 28, 2026</td>
+              <td style="color: var(--muted)">Jan 1–31</td>
+              <td style="color: var(--muted)">1.8 MB</td>
+              <td>
+                <div style="display: flex; gap: 6px">
+                  <button
+                    class="btn-ghost"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    Preview
+                  </button>
+                  <button
+                    class="btn-primary"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    ↓ Download
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <span style="font-size: 20px">🏆</span>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 500">
+                      Top 10 Posts — February
+                    </div>
+                    <div style="font-size: 10px; color: var(--muted)">
+                      Instagram · LinkedIn
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="tag purple">Content</span></td>
+              <td style="color: var(--muted)">Feb 10, 2026</td>
+              <td style="color: var(--muted)">Feb 1–10</td>
+              <td style="color: var(--muted)">0.9 MB</td>
+              <td>
+                <div style="display: flex; gap: 6px">
+                  <button
+                    class="btn-ghost"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    Preview
+                  </button>
+                  <button
+                    class="btn-primary"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    ↓ Download
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <span style="font-size: 20px">📈</span>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 500">
+                      Q4 2025 Annual Summary
+                    </div>
+                    <div style="font-size: 10px; color: var(--muted)">
+                      All platforms
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="tag pink">Growth</span></td>
+              <td style="color: var(--muted)">Jan 3, 2026</td>
+              <td style="color: var(--muted)">Oct–Dec 2025</td>
+              <td style="color: var(--muted)">4.1 MB</td>
+              <td>
+                <div style="display: flex; gap: 6px">
+                  <button
+                    class="btn-ghost"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    Preview
+                  </button>
+                  <button
+                    class="btn-primary"
+                    style="padding: 4px 10px; font-size: 11px"
+                  >
+                    ↓ Download
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+  </body>
+</html>

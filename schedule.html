@@ -1,0 +1,487 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Schedule</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .schedule-layout {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 20px;
+      }
+      .view-toggle {
+        display: flex;
+        background: var(--surface2);
+        border-radius: 8px;
+        padding: 3px;
+        gap: 2px;
+      }
+      .view-btn {
+        padding: 5px 14px;
+        border-radius: 6px;
+        font-size: 11px;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .view-btn.active {
+        background: var(--surface);
+        color: var(--text);
+      }
+      .month-nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .month-nav button {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .upcoming-item {
+        display: flex;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .upcoming-item:last-child {
+        border-bottom: none;
+      }
+      .upcoming-time {
+        font-size: 10px;
+        color: var(--muted);
+        white-space: nowrap;
+        min-width: 52px;
+        padding-top: 2px;
+      }
+      .upcoming-body {
+        flex: 1;
+      }
+      .upcoming-title {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 3px;
+      }
+      .upcoming-meta {
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .upcoming-bar {
+        width: 3px;
+        border-radius: 3px;
+        align-self: stretch;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item active" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Schedule</div>
+          <div class="page-subtitle">Plan and manage your content calendar</div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <div class="view-toggle">
+            <button class="view-btn active">Month</button>
+            <button class="view-btn">Week</button>
+            <button class="view-btn">List</button>
+          </div>
+          <button class="btn-primary">+ Schedule Post</button>
+        </div>
+      </div>
+
+      <div class="stats-grid-3" style="margin-bottom: 24px">
+        <div
+          class="stat-card c1"
+          style="animation-delay: 0s; padding: 16px 20px"
+        >
+          <div class="stat-label">⏰ Scheduled</div>
+          <div class="stat-value" style="font-size: 26px">28</div>
+          <div class="stat-change up">Next: Tomorrow 9am</div>
+        </div>
+        <div
+          class="stat-card c3"
+          style="animation-delay: 0.05s; padding: 16px 20px"
+        >
+          <div class="stat-label">📅 This Week</div>
+          <div class="stat-value" style="font-size: 26px">7</div>
+          <div class="stat-change up" style="color: var(--accent3)">
+            Across 3 platforms
+          </div>
+        </div>
+        <div
+          class="stat-card c4"
+          style="animation-delay: 0.1s; padding: 16px 20px"
+        >
+          <div class="stat-label">🔥 Best Slot</div>
+          <div class="stat-value" style="font-size: 26px">3 am</div>
+          <div class="stat-change up" style="color: var(--accent4)">
+            Sat & Sun
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-layout">
+        <div class="card" style="animation-delay: 0.1s">
+          <div class="card-header">
+            <div class="month-nav">
+              <button>◁</button>
+              <div class="card-title">February 2026</div>
+              <button>▷</button>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 6px;
+                font-size: 10px;
+                align-items: center;
+                color: var(--muted);
+              "
+            >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background: #e1306c;
+                    display: inline-block;
+                  "
+                ></span
+                >IG</span
+              >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background: #1da1f2;
+                    display: inline-block;
+                  "
+                ></span
+                >TW</span
+              >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background: #4d9de0;
+                    display: inline-block;
+                  "
+                ></span
+                >LI</span
+              >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background: #03f72b;
+                    display: inline-block;
+                  "
+                ></span
+                >WA</span
+              >
+            </div>
+          </div>
+
+          <div class="cal-header">
+            <div class="cal-day-label">Sun</div>
+            <div class="cal-day-label">Mon</div>
+            <div class="cal-day-label">Tue</div>
+            <div class="cal-day-label">Wed</div>
+            <div class="cal-day-label">Thu</div>
+            <div class="cal-day-label">Fri</div>
+            <div class="cal-day-label">Sat</div>
+          </div>
+
+          <div class="calendar-grid" id="calGrid"></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div class="card" style="animation-delay: 0.15s">
+            <div class="card-header">
+              <div class="card-title">Upcoming Posts</div>
+              <span class="card-badge">Next 7 days</span>
+            </div>
+            <div>
+              <div class="upcoming-item">
+                <div class="upcoming-bar" style="background: #47c8ff"></div>
+                <div class="upcoming-time">Tomorrow<br />9:00 am</div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">
+                    This one's going to break the internet
+                  </div>
+                  <div class="upcoming-meta">💬 WhatsApp</div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-bar" style="background: #e1306c"></div>
+                <div class="upcoming-time">Mar 2<br />3:00 am</div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">
+                    Sunday morning vibes — Reel drop
+                  </div>
+                  <div class="upcoming-meta">📸 Instagram</div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-bar" style="background: #1da1f2"></div>
+                <div class="upcoming-time">Mar 3<br />10:00 am</div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">
+                    How we hit 1M followers without paid ads
+                  </div>
+                  <div class="upcoming-meta">𝕏 / Twitter</div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-bar" style="background: #0a66c2"></div>
+                <div class="upcoming-time">Mar 4<br />8:00 am</div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">
+                    Thought leadership: The future of AI content
+                  </div>
+                  <div class="upcoming-meta">💼 LinkedIn</div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-bar" style="background: #e1306c"></div>
+                <div class="upcoming-time">Mar 7<br />3:00 am</div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">
+                    Behind the camera — studio tour
+                  </div>
+                  <div class="upcoming-meta">📸 Instagram</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="animation-delay: 0.2s">
+            <div class="card-header">
+              <div class="card-title">Best Times to Post</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  padding: 10px;
+                  background: var(--surface2);
+                  border-radius: 8px;
+                "
+              >
+                <span style="font-size: 18px">📸</span>
+                <div style="flex: 1">
+                  <div style="font-size: 12px; font-weight: 500">Instagram</div>
+                  <div style="font-size: 10px; color: var(--muted)">
+                    Sat & Sun, 3am – 4am
+                  </div>
+                </div>
+                <span class="tag accent">9.1% ER</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  padding: 10px;
+                  background: var(--surface2);
+                  border-radius: 8px;
+                "
+              >
+                <span style="font-size: 18px">𝕏</span>
+                <div style="flex: 1">
+                  <div style="font-size: 12px; font-weight: 500">
+                    X / Twitter
+                  </div>
+                  <div style="font-size: 10px; color: var(--muted)">
+                    Tue & Thu, 9am – 11am
+                  </div>
+                </div>
+                <span class="tag blue">6.2% ER</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  padding: 10px;
+                  background: var(--surface2);
+                  border-radius: 8px;
+                "
+              >
+                <span style="font-size: 18px">in</span>
+                <div style="flex: 1">
+                  <div style="font-size: 12px; font-weight: 500">LinkedIn</div>
+                  <div style="font-size: 10px; color: var(--muted)">
+                    Mon – Wed, 8am – 10am
+                  </div>
+                </div>
+                <span class="tag purple">5.8% ER</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  padding: 10px;
+                  background: var(--surface2);
+                  border-radius: 8px;
+                "
+              >
+                <span style="font-size: 18px">💬</span>
+                <div style="flex: 1">
+                  <div style="font-size: 12px; font-weight: 500">WhatsApp</div>
+                  <div style="font-size: 10px; color: var(--muted)">
+                    Fri & Sat, 7pm – 9pm
+                  </div>
+                </div>
+                <span
+                  class="tag"
+                  style="
+                    color: var(--green);
+                    border-color: rgba(61, 255, 160, 0.3);
+                    background: rgba(61, 255, 160, 0.07);
+                  "
+                  >4.4% ER</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+
+    <script>
+      (function () {
+        const grid = document.getElementById("calGrid");
+        const today = 28;
+
+        const events = {
+          2: [{ cls: "instagram", text: "📸 Reel drop" }],
+          4: [{ cls: "linkedin", text: "in Leadership post" }],
+          7: [{ cls: "instagram", text: "📸 Collab reveal" }],
+          9: [{ cls: "twitter", text: "𝕏 Thread drop" }],
+          11: [
+            { cls: "instagram", text: "📸 Morning post" },
+            { cls: "whatsapp", text: "💬 Blast" },
+          ],
+          14: [{ cls: "linkedin", text: "in Valentine biz post" }],
+          16: [{ cls: "twitter", text: "𝕏 Meme post" }],
+          18: [{ cls: "instagram", text: "📸 Reel" }],
+          21: [
+            { cls: "instagram", text: "📸 BTS video" },
+            { cls: "linkedin", text: "in Article" },
+          ],
+          23: [{ cls: "twitter", text: "𝕏 Thread" }],
+          25: [{ cls: "instagram", text: "📸 Stories" }],
+          27: [
+            { cls: "linkedin", text: "in Friday insights" },
+            { cls: "whatsapp", text: "💬 Weekend blast" },
+          ],
+          28: [{ cls: "instagram", text: "📸 Live stream" }],
+        };
+
+        const startDay = 0;
+        const daysInMonth = 28;
+
+        for (let i = 0; i < startDay; i++) {
+          const el = document.createElement("div");
+          el.className = "cal-day empty";
+          grid.appendChild(el);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const el = document.createElement("div");
+          el.className = "cal-day" + (d === today ? " today" : "");
+          el.innerHTML = `<div class="cal-date">${d}</div>`;
+          (events[d] || []).forEach((ev) => {
+            const e = document.createElement("div");
+            e.className = "cal-event " + ev.cls;
+            e.textContent = ev.text;
+            el.appendChild(e);
+          });
+          grid.appendChild(el);
+        }
+
+        document.querySelectorAll(".view-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            document
+              .querySelectorAll(".view-btn")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+      })();
+
+    </script>
+  </body>
+</html>

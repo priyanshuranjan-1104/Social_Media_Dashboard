@@ -1,0 +1,680 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Accounts</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .accounts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .acc-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .acc-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 10px;
+      }
+
+      .perm-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 12px;
+      }
+
+      .perm-row:last-child {
+        border-bottom: none;
+      }
+
+      .perm-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item active" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Accounts</div>
+          <div class="page-subtitle">
+            Manage all connected social media profiles
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <button class="btn-primary">+ Connect Account</button>
+        </div>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom: 28px">
+        <div class="stat-card c1" style="animation-delay: 0s">
+          <div class="stat-label">🔗 Connected</div>
+          <div class="stat-value">4</div>
+          <div class="stat-change up" style="color: var(--green)">
+            All active
+          </div>
+        </div>
+        <div class="stat-card c2" style="animation-delay: 0.05s">
+          <div class="stat-label">👥 Total Followers</div>
+          <div class="stat-value">584.6K</div>
+          <div class="stat-change up">▲ +16.1K this month</div>
+        </div>
+        <div class="stat-card c3" style="animation-delay: 0.1s">
+          <div class="stat-label">📊 Combined Reach</div>
+          <div class="stat-value">1.04M</div>
+          <div class="stat-change up">▲ +12.1% this month</div>
+        </div>
+        <div class="stat-card c4" style="animation-delay: 0.15s">
+          <div class="stat-label">❤️ Total Engagement</div>
+          <div class="stat-value">47.2K</div>
+          <div class="stat-change up">▲ +8.7% this month</div>
+        </div>
+      </div>
+
+      <div
+        style="
+          font-size: 11px;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 14px;
+        "
+      >
+        Connected Accounts
+      </div>
+      <div class="accounts-grid">
+        <div class="card" style="animation-delay: 0s">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              class="account-logo"
+              style="
+                background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+              "
+            >
+              📸
+            </div>
+            <div style="flex: 1">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 3px;
+                "
+              >
+                <div style="font-size: 14px; font-weight: 700">Instagram</div>
+                <span class="acc-status" style="color: var(--green)"
+                  ><span
+                    style="
+                      width: 5px;
+                      height: 5px;
+                      border-radius: 50%;
+                      background: currentColor;
+                      display: inline-block;
+                    "
+                  ></span
+                  >Connected</span
+                >
+              </div>
+              <div style="font-size: 12px; color: var(--muted)">
+                @priyanshu_creates
+              </div>
+            </div>
+            <div class="acc-actions">
+              <button
+                class="btn-ghost"
+                style="padding: 5px 10px; font-size: 11px"
+              >
+                Sync
+              </button>
+              <button
+                class="btn-ghost"
+                style="
+                  padding: 5px 10px;
+                  font-size: 11px;
+                  color: var(--accent2);
+                "
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <div class="audience-stat">
+              <div class="audience-stat-label">Followers</div>
+              <div class="audience-stat-val" style="font-size: 16px">397K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Posts</div>
+              <div class="audience-stat-val" style="font-size: 16px">284</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Eng. Rate</div>
+              <div
+                class="audience-stat-val"
+                style="font-size: 16px"
+                style="color: var(--green)"
+              >
+                9.1%
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: var(--muted);
+                margin-bottom: 5px;
+              "
+            >
+              <span>Monthly reach</span
+              ><span style="color: var(--accent)">68% of total</span>
+            </div>
+            <div class="progress-bar-wrap">
+              <div
+                class="progress-bar"
+                style="width: 68%; background: #e1306c"
+              ></div>
+            </div>
+          </div>
+          <div style="font-size: 10px; color: var(--muted); margin-top: 10px">
+            Last synced: 2 hours ago
+          </div>
+        </div>
+
+        <div class="card" style="animation-delay: 0.05s">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              margin-bottom: 16px;
+            "
+          >
+            <div class="account-logo" style="background: #1da1f2">𝕏</div>
+            <div style="flex: 1">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 3px;
+                "
+              >
+                <div style="font-size: 14px; font-weight: 700">X / Twitter</div>
+                <span class="acc-status" style="color: var(--green)"
+                  ><span
+                    style="
+                      width: 5px;
+                      height: 5px;
+                      border-radius: 50%;
+                      background: currentColor;
+                      display: inline-block;
+                    "
+                  ></span
+                  >Connected</span
+                >
+              </div>
+              <div style="font-size: 12px; color: var(--muted)">@prnj_dev</div>
+            </div>
+            <div class="acc-actions">
+              <button
+                class="btn-ghost"
+                style="padding: 5px 10px; font-size: 11px"
+              >
+                Sync
+              </button>
+              <button
+                class="btn-ghost"
+                style="
+                  padding: 5px 10px;
+                  font-size: 11px;
+                  color: var(--accent2);
+                "
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <div class="audience-stat">
+              <div class="audience-stat-label">Followers</div>
+              <div class="audience-stat-val" style="font-size: 16px">81.8K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Tweets</div>
+              <div class="audience-stat-val" style="font-size: 16px">1,240</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Eng. Rate</div>
+              <div class="audience-stat-val" style="font-size: 16px">6.2%</div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: var(--muted);
+                margin-bottom: 5px;
+              "
+            >
+              <span>Monthly reach</span
+              ><span style="color: var(--accent3)">14% of total</span>
+            </div>
+            <div class="progress-bar-wrap">
+              <div
+                class="progress-bar"
+                style="width: 14%; background: #1da1f2"
+              ></div>
+            </div>
+          </div>
+          <div style="font-size: 10px; color: var(--muted); margin-top: 10px">
+            Last synced: 1 hour ago
+          </div>
+        </div>
+
+        <div class="card" style="animation-delay: 0.1s">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              margin-bottom: 16px;
+            "
+          >
+            <div class="account-logo" style="background: #0a66c2">in</div>
+            <div style="flex: 1">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 3px;
+                "
+              >
+                <div style="font-size: 14px; font-weight: 700">LinkedIn</div>
+                <span class="acc-status" style="color: var(--green)"
+                  ><span
+                    style="
+                      width: 5px;
+                      height: 5px;
+                      border-radius: 50%;
+                      background: currentColor;
+                      display: inline-block;
+                    "
+                  ></span
+                  >Connected</span
+                >
+              </div>
+              <div style="font-size: 12px; color: var(--muted)">
+                Priyanshu Ranjan
+              </div>
+            </div>
+            <div class="acc-actions">
+              <button
+                class="btn-ghost"
+                style="padding: 5px 10px; font-size: 11px"
+              >
+                Sync
+              </button>
+              <button
+                class="btn-ghost"
+                style="
+                  padding: 5px 10px;
+                  font-size: 11px;
+                  color: var(--accent2);
+                "
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <div class="audience-stat">
+              <div class="audience-stat-label">Connections</div>
+              <div class="audience-stat-val" style="font-size: 16px">58.4K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Articles</div>
+              <div class="audience-stat-val" style="font-size: 16px">47</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Eng. Rate</div>
+              <div class="audience-stat-val" style="font-size: 16px">5.8%</div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: var(--muted);
+                margin-bottom: 5px;
+              "
+            >
+              <span>Monthly reach</span
+              ><span style="color: var(--accent4)">10% of total</span>
+            </div>
+            <div class="progress-bar-wrap">
+              <div
+                class="progress-bar"
+                style="width: 10%; background: #0a66c2"
+              ></div>
+            </div>
+          </div>
+          <div style="font-size: 10px; color: var(--muted); margin-top: 10px">
+            Last synced: 30 mins ago
+          </div>
+        </div>
+
+        <div class="card" style="animation-delay: 0.15s">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              margin-bottom: 16px;
+            "
+          >
+            <div class="account-logo" style="background: #128c7e">💬</div>
+            <div style="flex: 1">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 3px;
+                "
+              >
+                <div style="font-size: 14px; font-weight: 700">WhatsApp</div>
+                <span class="acc-status" style="color: var(--green)"
+                  ><span
+                    style="
+                      width: 5px;
+                      height: 5px;
+                      border-radius: 50%;
+                      background: currentColor;
+                      display: inline-block;
+                    "
+                  ></span
+                  >Connected</span
+                >
+              </div>
+              <div style="font-size: 12px; color: var(--muted)">
+                Business Channel
+              </div>
+            </div>
+            <div class="acc-actions">
+              <button
+                class="btn-ghost"
+                style="padding: 5px 10px; font-size: 11px"
+              >
+                Sync
+              </button>
+              <button
+                class="btn-ghost"
+                style="
+                  padding: 5px 10px;
+                  font-size: 11px;
+                  color: var(--accent2);
+                "
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <div class="audience-stat">
+              <div class="audience-stat-label">Subscribers</div>
+              <div class="audience-stat-val" style="font-size: 16px">47.4K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Broadcasts</div>
+              <div class="audience-stat-val" style="font-size: 16px">89</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Open Rate</div>
+              <div class="audience-stat-val" style="font-size: 16px">91%</div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: var(--muted);
+                margin-bottom: 5px;
+              "
+            >
+              <span>Monthly reach</span
+              ><span style="color: var(--green)">8% of total</span>
+            </div>
+            <div class="progress-bar-wrap">
+              <div
+                class="progress-bar"
+                style="width: 8%; background: #03f72b"
+              ></div>
+            </div>
+          </div>
+          <div style="font-size: 10px; color: var(--muted); margin-top: 10px">
+            Last synced: 15 mins ago
+          </div>
+        </div>
+
+        <div
+          class="card"
+          style="
+            animation-delay: 0.2s;
+            border-style: dashed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            cursor: pointer;
+            transition: all 0.2s;
+          "
+          onmouseenter="this.style.borderColor = 'rgba(232,255,71,0.3)'"
+          onmouseleave="this.style.borderColor = 'var(--border)'"
+          onclick="alert('Connect a new platform!')"
+        >
+          <div style="text-align: center; color: var(--muted)">
+            <div style="font-size: 36px; margin-bottom: 10px">+</div>
+            <div
+              style="
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text);
+                margin-bottom: 4px;
+              "
+            >
+              Connect Platform
+            </div>
+            <div style="font-size: 11px">
+              YouTube · TikTok · Pinterest · and more
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">API Permissions & Access</div>
+          <button class="btn-ghost" style="font-size: 11px; padding: 5px 12px">
+            Revoke All
+          </button>
+        </div>
+        <div class="perm-row">
+          <div class="perm-icon" style="background: rgba(225, 48, 108, 0.15)">
+            📸
+          </div>
+          <div style="flex: 1">
+            <div style="font-size: 12px; font-weight: 500">
+              Instagram Graph API
+            </div>
+            <div style="font-size: 10px; color: var(--muted)">
+              Read, Publish, Insights · Expires Apr 14, 2026
+            </div>
+          </div>
+          <span class="status-badge live"
+            ><span class="status-dot"></span>Active</span
+          >
+        </div>
+        <div class="perm-row">
+          <div class="perm-icon" style="background: rgba(29, 161, 242, 0.15)">
+            𝕏
+          </div>
+          <div style="flex: 1">
+            <div style="font-size: 12px; font-weight: 500">
+              X Developer API v2
+            </div>
+            <div style="font-size: 10px; color: var(--muted)">
+              Read, Write, DM · Expires Jun 2, 2026
+            </div>
+          </div>
+          <span class="status-badge live"
+            ><span class="status-dot"></span>Active</span
+          >
+        </div>
+        <div class="perm-row">
+          <div class="perm-icon" style="background: rgba(10, 102, 194, 0.15)">
+            in
+          </div>
+          <div style="flex: 1">
+            <div style="font-size: 12px; font-weight: 500">LinkedIn API</div>
+            <div style="font-size: 10px; color: var(--muted)">
+              Share, Analytics · Expires Mar 1, 2026
+            </div>
+          </div>
+          <span
+            class="status-badge scheduled"
+            style="background: rgba(255, 79, 123, 0.1); color: var(--accent2)"
+            ><span class="status-dot"></span>Expiring Soon</span
+          >
+        </div>
+        <div class="perm-row">
+          <div class="perm-icon" style="background: rgba(18, 140, 126, 0.15)">
+            💬
+          </div>
+          <div style="flex: 1">
+            <div style="font-size: 12px; font-weight: 500">
+              WhatsApp Business API
+            </div>
+            <div style="font-size: 10px; color: var(--muted)">
+              Messaging, Broadcasts · Expires Sep 30, 2026
+            </div>
+          </div>
+          <span class="status-badge live"
+            ><span class="status-dot"></span>Active</span
+          >
+        </div>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+  </body>
+</html>

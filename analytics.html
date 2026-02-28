@@ -1,0 +1,600 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Analytics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item active" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Analytics</div>
+          <div class="page-subtitle">
+            Deep performance insights across all platforms
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <select
+            class="form-input"
+            style="width: auto; padding: 7px 14px; font-size: 12px"
+          >
+            <option>Last 30 days</option>
+            <option>Last 7 days</option>
+            <option>Last 90 days</option>
+            <option>This year</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="platform-tabs">
+        <button
+          class="platform-tab active"
+          onclick="filterPlatform('all', this)"
+        >
+          All Platforms
+        </button>
+        <button
+          class="platform-tab"
+          onclick="filterPlatform('instagram', this)"
+        >
+          <span class="dot" style="background: #e1306c"></span>Instagram
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('twitter', this)">
+          <span class="dot" style="background: #1da1f2"></span>X / Twitter
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('linkedin', this)">
+          <span class="dot" style="background: #0a66c2"></span>LinkedIn
+        </button>
+        <button class="platform-tab" onclick="filterPlatform('whatsapp', this)">
+          <span class="dot" style="background: #02fa50"></span>WhatsApp
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card c1" style="animation-delay: 0s">
+          <div class="stat-label">
+            <span class="platform-icon">👁️</span> Impressions
+          </div>
+          <div class="stat-value">3.21M</div>
+          <div class="stat-change up">▲ +14.3% vs prev</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,26 12,20 24,18 36,10 48,12 60,4"
+              fill="none"
+              stroke="#e8ff47"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c2" style="animation-delay: 0.05s">
+          <div class="stat-label">
+            <span class="platform-icon">💬</span> Comments
+          </div>
+          <div class="stat-value">9,340</div>
+          <div class="stat-change up">▲ +5.1% vs prev</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,22 12,24 24,14 36,16 48,8 60,6"
+              fill="none"
+              stroke="#ff4f7b"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c3" style="animation-delay: 0.1s">
+          <div class="stat-label">
+            <span class="platform-icon">🔁</span> Shares / Reposts
+          </div>
+          <div class="stat-value">12.8K</div>
+          <div class="stat-change up">▲ +21.7% vs prev</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,24 12,20 24,22 36,12 48,8 60,2"
+              fill="none"
+              stroke="#47c8ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+        <div class="stat-card c4" style="animation-delay: 0.15s">
+          <div class="stat-label">
+            <span class="platform-icon">📊</span> Avg. Eng. Rate
+          </div>
+          <div class="stat-value">8.7%</div>
+          <div class="stat-change down">▼ -0.3% vs prev</div>
+          <svg class="mini-chart" width="60" height="30" viewBox="0 0 60 30">
+            <polyline
+              points="0,8 12,10 24,12 36,14 48,16 60,14"
+              fill="none"
+              stroke="#b847ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="content-row" style="margin-bottom: 20px">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Reach & Impressions Over Time</div>
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                font-size: 11px;
+                color: var(--muted);
+                align-items: center;
+              "
+            >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 8px;
+                    height: 2px;
+                    background: var(--accent3);
+                    display: inline-block;
+                    border-radius: 2px;
+                  "
+                ></span
+                >Reach</span
+              >
+              <span style="display: flex; align-items: center; gap: 4px"
+                ><span
+                  style="
+                    width: 8px;
+                    height: 2px;
+                    background: var(--accent);
+                    display: inline-block;
+                    border-radius: 2px;
+                  "
+                ></span
+                >Impressions</span
+              >
+            </div>
+          </div>
+          <div class="chart-container" style="height: 200px">
+            <canvas id="reachChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Traffic Sources</div>
+            <span class="card-badge">30 days</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+              margin-top: 8px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 6px;
+                "
+              >
+                <span>Organic Search</span
+                ><span style="color: var(--accent)">38%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 38%; background: var(--accent)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 6px;
+                "
+              >
+                <span>Direct</span
+                ><span style="color: var(--accent3)">27%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 27%; background: var(--accent3)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 6px;
+                "
+              >
+                <span>Social Referral</span
+                ><span style="color: var(--accent2)">21%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 21%; background: var(--accent2)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 6px;
+                "
+              >
+                <span>Paid</span><span style="color: var(--accent4)">9%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 9%; background: var(--accent4)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 6px;
+                "
+              >
+                <span>Other</span><span style="color: var(--muted)">5%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 5%; background: var(--muted)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-row-equal" style="margin-bottom: 20px">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Follower Growth</div>
+            <span class="card-badge">30 days</span>
+          </div>
+          <div class="chart-container" style="height: 160px">
+            <canvas id="followerChart"></canvas>
+          </div>
+          <div style="display: flex; gap: 16px; margin-top: 16px">
+            <div class="audience-stat" style="flex: 1">
+              <div class="audience-stat-label">New Followers</div>
+              <div class="audience-stat-val" style="font-size: 18px">
+                +18.2K
+              </div>
+              <div class="audience-stat-sub" style="color: var(--green)">
+                ▲ +3.2%
+              </div>
+            </div>
+            <div class="audience-stat" style="flex: 1">
+              <div class="audience-stat-label">Unfollows</div>
+              <div class="audience-stat-val" style="font-size: 18px">–2.1K</div>
+              <div class="audience-stat-sub" style="color: var(--red)">
+                ▼ -0.4%
+              </div>
+            </div>
+            <div class="audience-stat" style="flex: 1">
+              <div class="audience-stat-label">Net Growth</div>
+              <div class="audience-stat-val" style="font-size: 18px">
+                +16.1K
+              </div>
+              <div class="audience-stat-sub" style="color: var(--green)">
+                ▲ net
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Engagement Breakdown</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 24px">
+            <canvas id="engDonut" width="130" height="130"></canvas>
+            <div class="donut-legend">
+              <div class="legend-item">
+                <div class="legend-dot" style="background: var(--accent)"></div>
+                <span class="legend-label">Likes</span
+                ><span class="legend-val">63%</span>
+              </div>
+              <div class="legend-item">
+                <div
+                  class="legend-dot"
+                  style="background: var(--accent3)"
+                ></div>
+                <span class="legend-label">Comments</span
+                ><span class="legend-val">19%</span>
+              </div>
+              <div class="legend-item">
+                <div
+                  class="legend-dot"
+                  style="background: var(--accent4)"
+                ></div>
+                <span class="legend-label">Shares</span
+                ><span class="legend-val">12%</span>
+              </div>
+              <div class="legend-item">
+                <div
+                  class="legend-dot"
+                  style="background: var(--accent2)"
+                ></div>
+                <span class="legend-label">Saves</span
+                ><span class="legend-val">6%</span>
+              </div>
+            </div>
+          </div>
+          <div
+            style="height: 1px; background: var(--border); margin: 20px 0"
+          ></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+            <div class="audience-stat">
+              <div class="audience-stat-label">Total Likes</div>
+              <div class="audience-stat-val" style="font-size: 18px">29.7K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Total Comments</div>
+              <div class="audience-stat-val" style="font-size: 18px">9.3K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Total Shares</div>
+              <div class="audience-stat-val" style="font-size: 18px">5.7K</div>
+            </div>
+            <div class="audience-stat">
+              <div class="audience-stat-label">Total Saves</div>
+              <div class="audience-stat-val" style="font-size: 18px">2.8K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Top Performing Content</div>
+          <span style="font-size: 11px; color: var(--accent); cursor: pointer"
+            >View all →</span
+          >
+        </div>
+        <div class="post-row header">
+          <div>Post</div>
+          <div>Impressions</div>
+          <div>Eng. Rate</div>
+          <div>Clicks</div>
+          <div>Score</div>
+        </div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">💡</div>
+            <div class="post-meta">
+              <div class="post-name">
+                The algorithm change nobody's talking about
+              </div>
+              <div class="post-platform-badge">📸 Instagram · Yesterday</div>
+            </div>
+          </div>
+          <div>91.4K</div>
+          <div style="color: var(--green)">12.4%</div>
+          <div>1,204</div>
+          <div><span class="card-badge">★ 9.8</span></div>
+        </div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">🌊</div>
+            <div class="post-meta">
+              <div class="post-name">
+                Behind the scenes — product launch day
+              </div>
+              <div class="post-platform-badge">📸 Instagram · 2h ago</div>
+            </div>
+          </div>
+          <div>42.3K</div>
+          <div style="color: var(--green)">8.7%</div>
+          <div>309</div>
+          <div><span class="card-badge">★ 8.4</span></div>
+        </div>
+        <div class="post-row">
+          <div class="post-title">
+            <div class="post-thumb">🔥</div>
+            <div class="post-meta">
+              <div class="post-name">5 trends shaping social in 2026</div>
+              <div class="post-platform-badge">💼 LinkedIn · 6h ago</div>
+            </div>
+          </div>
+          <div>18.7K</div>
+          <div style="color: var(--green)">7.1%</div>
+          <div>847</div>
+          <div><span class="card-badge">★ 7.9</span></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+
+    <script>
+      (function () {
+        const canvas = document.getElementById("reachChart");
+        const ctx = canvas.getContext("2d");
+        function draw() {
+          const dpr = window.devicePixelRatio || 1;
+          const W = canvas.parentElement.getBoundingClientRect().width;
+          const H = 200;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          canvas.style.width = W + "px";
+          canvas.style.height = H + "px";
+          ctx.scale(dpr, dpr);
+          ctx.clearRect(0, 0, W, H);
+          const pad = { top: 16, right: 16, bottom: 32, left: 8 };
+          const DAYS = 30;
+          const reach = Array.from(
+            { length: DAYS },
+            (_, i) => wave(i, 0) * 80000 + 40000,
+          );
+          const impressions = Array.from(
+            { length: DAYS },
+            (_, i) => wave(i, 1) * 200000 + 120000,
+          );
+          const maxVal = Math.max(...impressions);
+          drawGridLines(ctx, pad, W, H);
+          drawLineChart(
+            ctx,
+            impressions,
+            "rgb(232,255,71)",
+            pad,
+            W,
+            H,
+            DAYS,
+            maxVal,
+          );
+          drawLineChart(ctx, reach, "rgb(71,200,255)", pad, W, H, DAYS, maxVal);
+          drawXLabels(
+            ctx,
+            ["Jan 20", "Jan 27", "Feb 3", "Feb 10", "Feb 17", "Feb 19"],
+            [0, 5, 10, 16, 23, 29],
+            DAYS,
+            pad,
+            W,
+            H,
+          );
+        }
+        draw();
+        window.addEventListener("resize", draw);
+      })();
+
+      (function () {
+        const canvas = document.getElementById("followerChart");
+        const ctx = canvas.getContext("2d");
+        function draw() {
+          const dpr = window.devicePixelRatio || 1;
+          const W = canvas.parentElement.getBoundingClientRect().width;
+          const H = 160;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          canvas.style.width = W + "px";
+          canvas.style.height = H + "px";
+          ctx.scale(dpr, dpr);
+          ctx.clearRect(0, 0, W, H);
+          const pad = { top: 12, right: 16, bottom: 28, left: 8 };
+          const DAYS = 30;
+          const followers = Array.from(
+            { length: DAYS },
+            (_, i) => 566000 + i * 600 + wave(i, 3) * 2000,
+          );
+          const maxVal = Math.max(...followers);
+          const minVal = Math.min(...followers);
+          const range = maxVal - minVal || 1;
+          const cw = W - pad.left - pad.right;
+          const ch = H - pad.top - pad.bottom;
+          drawGridLines(ctx, pad, W, H, 3);
+          ctx.beginPath();
+          followers.forEach((v, i) => {
+            const x = pad.left + (i / (DAYS - 1)) * cw;
+            const y = pad.top + ch - ((v - minVal) / range) * ch;
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          });
+          ctx.strokeStyle = "rgb(61,255,160)";
+          ctx.lineWidth = 2;
+          ctx.lineJoin = "round";
+          ctx.stroke();
+          drawXLabels(
+            ctx,
+            ["Jan 20", "Feb 1", "Feb 10", "Feb 19"],
+            [0, 11, 20, 29],
+            DAYS,
+            pad,
+            W,
+            H,
+          );
+        }
+        draw();
+        window.addEventListener("resize", draw);
+      })();
+
+      drawDonut("engDonut", [
+        { pct: 63, color: "#e8ff47" },
+        { pct: 19, color: "#47c8ff" },
+        { pct: 12, color: "#b847ff" },
+        { pct: 6, color: "#ff4f7b" },
+      ]);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,605 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smyl — Audience</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo"><span></span>Smyl</div>
+      <div class="nav-section">Overview</div>
+      <a class="nav-item" href="index.html"
+        ><span class="nav-icon">◈</span> Dashboard</a
+      >
+      <a class="nav-item" href="analytics.html"
+        ><span class="nav-icon">◉</span> Analytics</a
+      >
+      <a class="nav-item active" href="audience.html"
+        ><span class="nav-icon">◎</span> Audience</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Content</div>
+      <a class="nav-item" href="posts.html"
+        ><span class="nav-icon">▦</span> Posts</a
+      >
+      <a class="nav-item" href="schedule.html"
+        ><span class="nav-icon">◷</span> Schedule</a
+      >
+      <a class="nav-item" href="media.html"
+        ><span class="nav-icon">◫</span> Media</a
+      >
+      <div class="nav-section" style="margin-top: 20px">Manage</div>
+      <a class="nav-item" href="accounts.html"
+        ><span class="nav-icon">◌</span> Accounts</a
+      >
+      <a class="nav-item" href="reports.html"
+        ><span class="nav-icon">◁</span> Reports</a
+      >
+      <a class="nav-item" href="settings.html"
+        ><span class="nav-icon">⊙</span> Settings</a
+      >
+      <div class="sidebar-bottom">
+        <div class="avatar-row">
+          <div class="avatar">PR</div>
+          <div class="avatar-info">
+            <div class="avatar-name">Priyanshu Ranjan</div>
+            <div class="avatar-role">Student</div>
+          </div>
+          <span style="font-size: 14px; color: var(--muted)">⋯</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <div class="page-title">Audience</div>
+          <div class="page-subtitle">
+            Who's following and engaging with your content
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="date-badge" id="current-date"></div>
+          <div class="notif-btn">🔔<span class="notif-dot"></span></div>
+          <select
+            class="form-input"
+            style="width: auto; padding: 7px 14px; font-size: 12px"
+          >
+            <option>Last 30 days</option>
+            <option>Last 7 days</option>
+            <option>Last 90 days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card c1" style="animation-delay: 0s">
+          <div class="stat-label">
+            <span class="platform-icon">👥</span> Total Followers
+          </div>
+          <div class="stat-value">584.6K</div>
+          <div class="stat-change up">▲ +16.1K this month</div>
+        </div>
+        <div class="stat-card c2" style="animation-delay: 0.05s">
+          <div class="stat-label">
+            <span class="platform-icon">🔔</span> Active Followers
+          </div>
+          <div class="stat-value">71.2%</div>
+          <div class="stat-change up">▲ +2.1% vs prev</div>
+        </div>
+        <div class="stat-card c3" style="animation-delay: 0.1s">
+          <div class="stat-label">
+            <span class="platform-icon">🌍</span> Countries Reached
+          </div>
+          <div class="stat-value">48</div>
+          <div class="stat-change up">▲ +3 new this month</div>
+        </div>
+        <div class="stat-card c4" style="animation-delay: 0.15s">
+          <div class="stat-label">
+            <span class="platform-icon">⏰</span> Best Post Time
+          </div>
+          <div class="stat-value">3 am</div>
+          <div class="stat-change up" style="color: var(--accent3)">
+            Sat &amp; Sun
+          </div>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Demographics</div>
+            <div style="display: flex; gap: 8px">
+              <span class="tag accent">Age</span>
+              <span class="tag blue">Gender</span>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px">
+            <div
+              style="
+                font-size: 11px;
+                color: var(--muted);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 14px;
+              "
+            >
+              Age Groups
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">13–17</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 4%; background: var(--accent4)"
+                ></div>
+              </div>
+              <div class="age-pct">4%</div>
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">18–24</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 48%; background: var(--accent)"
+                ></div>
+              </div>
+              <div class="age-pct">48%</div>
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">25–34</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 28%; background: var(--accent3)"
+                ></div>
+              </div>
+              <div class="age-pct">28%</div>
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">35–44</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 12%; background: var(--accent2)"
+                ></div>
+              </div>
+              <div class="age-pct">12%</div>
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">45–54</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 5%; background: var(--muted)"
+                ></div>
+              </div>
+              <div class="age-pct">5%</div>
+            </div>
+            <div class="age-bar-wrap">
+              <div class="age-label">55+</div>
+              <div class="age-bar-bg">
+                <div
+                  class="age-bar"
+                  style="width: 3%; background: var(--muted)"
+                ></div>
+              </div>
+              <div class="age-pct">3%</div>
+            </div>
+          </div>
+
+          <div
+            style="height: 1px; background: var(--border); margin-bottom: 20px"
+          ></div>
+
+          <div
+            style="
+              font-size: 11px;
+              color: var(--muted);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 14px;
+            "
+          >
+            Gender Split
+          </div>
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              align-items: center;
+              margin-bottom: 16px;
+            "
+          >
+            <canvas id="genderDonut" width="100" height="100"></canvas>
+            <div
+              style="flex: 1; display: flex; flex-direction: column; gap: 10px"
+            >
+              <div class="legend-item">
+                <div
+                  class="legend-dot"
+                  style="background: var(--accent3)"
+                ></div>
+                <span class="legend-label">Female</span
+                ><span class="legend-val">54%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background: var(--accent)"></div>
+                <span class="legend-label">Male</span
+                ><span class="legend-val">42%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background: var(--muted)"></div>
+                <span class="legend-label">Other / N/A</span
+                ><span class="legend-val">4%</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="height: 1px; background: var(--border); margin-bottom: 20px"
+          ></div>
+
+          <div
+            style="
+              font-size: 11px;
+              color: var(--muted);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 14px;
+            "
+          >
+            Device Split
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 5px;
+                "
+              >
+                <span>📱 Mobile</span
+                ><span style="color: var(--accent)">78%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 78%; background: var(--accent)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 5px;
+                "
+              >
+                <span>💻 Desktop</span
+                ><span style="color: var(--accent3)">17%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 17%; background: var(--accent3)"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 12px;
+                  margin-bottom: 5px;
+                "
+              >
+                <span>📟 Tablet</span
+                ><span style="color: var(--muted)">5%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div
+                  class="progress-bar"
+                  style="width: 5%; background: var(--muted)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <div class="card" style="animation-delay: 0.15s">
+            <div class="card-header">
+              <div class="card-title">Top Locations</div>
+              <span class="card-badge">By followers</span>
+            </div>
+            <div class="breakdown-list">
+              <div class="breakdown-item">
+                <div
+                  class="breakdown-icon"
+                  style="background: rgba(232, 255, 71, 0.1); font-size: 20px"
+                >
+                  🇮🇳
+                </div>
+                <div class="breakdown-info">
+                  <div class="breakdown-name">India</div>
+                  <div class="breakdown-bar-wrap">
+                    <div
+                      class="breakdown-bar"
+                      style="width: 61%; background: var(--accent)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="breakdown-val">61%</div>
+              </div>
+              <div class="breakdown-item">
+                <div
+                  class="breakdown-icon"
+                  style="background: rgba(71, 200, 255, 0.1); font-size: 20px"
+                >
+                  🇺🇸
+                </div>
+                <div class="breakdown-info">
+                  <div class="breakdown-name">United States</div>
+                  <div class="breakdown-bar-wrap">
+                    <div
+                      class="breakdown-bar"
+                      style="width: 14%; background: var(--accent3)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="breakdown-val">14%</div>
+              </div>
+              <div class="breakdown-item">
+                <div
+                  class="breakdown-icon"
+                  style="background: rgba(184, 71, 255, 0.1); font-size: 20px"
+                >
+                  🇬🇧
+                </div>
+                <div class="breakdown-info">
+                  <div class="breakdown-name">United Kingdom</div>
+                  <div class="breakdown-bar-wrap">
+                    <div
+                      class="breakdown-bar"
+                      style="width: 8%; background: var(--accent4)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="breakdown-val">8%</div>
+              </div>
+              <div class="breakdown-item">
+                <div
+                  class="breakdown-icon"
+                  style="background: rgba(255, 79, 123, 0.1); font-size: 20px"
+                >
+                  🇦🇺
+                </div>
+                <div class="breakdown-info">
+                  <div class="breakdown-name">Australia</div>
+                  <div class="breakdown-bar-wrap">
+                    <div
+                      class="breakdown-bar"
+                      style="width: 6%; background: var(--accent2)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="breakdown-val">6%</div>
+              </div>
+              <div class="breakdown-item">
+                <div
+                  class="breakdown-icon"
+                  style="background: rgba(107, 107, 133, 0.15); font-size: 20px"
+                >
+                  🌍
+                </div>
+                <div class="breakdown-info">
+                  <div class="breakdown-name">Other</div>
+                  <div class="breakdown-bar-wrap">
+                    <div
+                      class="breakdown-bar"
+                      style="width: 11%; background: var(--muted)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="breakdown-val">11%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="animation-delay: 0.2s">
+            <div class="card-header">
+              <div class="card-title">Activity by Hour</div>
+              <span class="card-badge">Avg day</span>
+            </div>
+            <div class="chart-container" style="height: 120px">
+              <canvas id="hourChart"></canvas>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 10px;
+                color: var(--muted);
+                margin-top: 6px;
+                padding: 0 4px;
+              "
+            >
+              <span>12am</span><span>6am</span><span>12pm</span><span>6pm</span
+              ><span>11pm</span>
+            </div>
+            <div
+              style="
+                margin-top: 14px;
+                padding: 12px;
+                background: var(--surface2);
+                border-radius: 8px;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <span style="font-size: 20px">⏰</span>
+              <div>
+                <div style="color: var(--accent); font-weight: 600">
+                  Peak: 2am – 4am
+                </div>
+                <div
+                  style="color: var(--muted); font-size: 11px; margin-top: 2px"
+                >
+                  Sat & Sun see 2.4× higher engagement
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 0">
+        <div class="card-header">
+          <div class="card-title">Audience Interests</div>
+          <span class="card-badge">Top categories</span>
+        </div>
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px"
+        >
+          <span class="tag accent" style="padding: 6px 14px; font-size: 12px"
+            >🎨 Design</span
+          >
+          <span class="tag blue" style="padding: 6px 14px; font-size: 12px"
+            >💻 Technology</span
+          >
+          <span class="tag purple" style="padding: 6px 14px; font-size: 12px"
+            >🚀 Startups</span
+          >
+          <span class="tag pink" style="padding: 6px 14px; font-size: 12px"
+            >📸 Photography</span
+          >
+          <span class="tag accent" style="padding: 6px 14px; font-size: 12px"
+            >🎵 Music</span
+          >
+          <span class="tag blue" style="padding: 6px 14px; font-size: 12px"
+            >✈️ Travel</span
+          >
+          <span class="tag" style="padding: 6px 14px; font-size: 12px"
+            >🏋️ Fitness</span
+          >
+          <span class="tag" style="padding: 6px 14px; font-size: 12px"
+            >📚 Education</span
+          >
+          <span class="tag" style="padding: 6px 14px; font-size: 12px"
+            >🎮 Gaming</span
+          >
+          <span class="tag" style="padding: 6px 14px; font-size: 12px"
+            >🍕 Food</span
+          >
+        </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+          "
+        >
+          <div class="audience-stat">
+            <div class="audience-stat-label">Most Engaged</div>
+            <div class="audience-stat-val" style="font-size: 16px">
+              Designers
+            </div>
+            <div class="audience-stat-sub">38% of interactions</div>
+          </div>
+          <div class="audience-stat">
+            <div class="audience-stat-label">Fastest Growing</div>
+            <div class="audience-stat-val" style="font-size: 16px">
+              Founders
+            </div>
+            <div class="audience-stat-sub">▲ +41% this month</div>
+          </div>
+          <div class="audience-stat">
+            <div class="audience-stat-label">Highest Reach</div>
+            <div class="audience-stat-val" style="font-size: 16px">
+              Students
+            </div>
+            <div class="audience-stat-sub">1.1M impressions</div>
+          </div>
+          <div class="audience-stat">
+            <div class="audience-stat-label">Most Shares</div>
+            <div class="audience-stat-val" style="font-size: 16px">
+              Dev / Tech
+            </div>
+            <div class="audience-stat-sub">4.2K shares</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="shared.js"></script>
+
+    <script>
+      drawDonut(
+        "genderDonut",
+        [
+          { pct: 54, color: "#47c8ff" },
+          { pct: 42, color: "#e8ff47" },
+          { pct: 4, color: "#6b6b85" },
+        ],
+        100,
+      );
+
+      (function () {
+        const canvas = document.getElementById("hourChart");
+        const ctx = canvas.getContext("2d");
+        function draw() {
+          const dpr = window.devicePixelRatio || 1;
+          const W = canvas.parentElement.getBoundingClientRect().width;
+          const H = 120;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          canvas.style.width = W + "px";
+          canvas.style.height = H + "px";
+          ctx.scale(dpr, dpr);
+          ctx.clearRect(0, 0, W, H);
+
+          const hours = [
+            1, 0.6, 1.4, 2.8, 4.2, 3.1, 1.8, 1.2, 1.0, 0.9, 1.1, 1.3, 1.5, 1.4,
+            1.6, 1.8, 2.0, 2.4, 2.8, 3.6, 4.8, 5.2, 4.9, 3.2,
+          ];
+          const maxH = Math.max(...hours);
+          const pad = { top: 8, right: 8, bottom: 6, left: 8 };
+          const bw = (W - pad.left - pad.right) / hours.length;
+          const ch = H - pad.top - pad.bottom;
+
+          hours.forEach((v, i) => {
+            const barH = (v / maxH) * ch;
+            const x = pad.left + i * bw + bw * 0.15;
+            const y = pad.top + ch - barH;
+            const w = bw * 0.7;
+            const alpha = 0.3 + (v / maxH) * 0.7;
+            ctx.fillStyle = `rgba(232,255,71,${alpha})`;
+            // rounded top
+            const r = Math.min(3, w / 2);
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.arcTo(x + w, y, x + w, y + r, r);
+            ctx.lineTo(x + w, y + barH);
+            ctx.lineTo(x, y + barH);
+            ctx.arcTo(x, y, x + r, y, r);
+            ctx.closePath();
+            ctx.fill();
+          });
+        }
+        draw();
+        window.addEventListener("resize", draw);
+      })();
+
+    </script>
+  </body>
+</html>
